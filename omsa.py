@@ -23,13 +23,13 @@ class storage:
             return parse_om("storage %s controller=%s" % (type, self.ID))
 
         def vdisks(self):
-            return map(self.__class__.VirtualDisk, self._get_properties('vdisk'))
+            return list(map(self.__class__.VirtualDisk, self._get_properties('vdisk')))
 
         def pdisks(self):
-            return map(self.__class__.PhysicalDisk, self._get_properties('pdisk'))
+            return list(map(self.__class__.PhysicalDisk, self._get_properties('pdisk')))
 
         def battery(self):
-            return map(self.__class__.Battery, self._get_properties('battery'))
+            return list(map(self.__class__.Battery, self._get_properties('battery')))
 
         def __init__(self, props):
             load_props(self, props)
@@ -39,4 +39,4 @@ class storage:
 
     @classmethod
     def controllers(cls):
-        return map(cls.Controller, parse_om("storage controller"))
+        return list(map(cls.Controller, parse_om("storage controller")))
