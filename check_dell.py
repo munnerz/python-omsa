@@ -110,7 +110,7 @@ def parse_om(suffix, filters=""):
     """
 
     filters = [x.lower() for x in filters]
-    cmd = ["/usr/sbin/omreport"] + suffix.split()
+    cmd = ["/opt/dell/srvadmin/bin/omreport"] + suffix.split()
     try:
         data = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
     except OSError, e:
