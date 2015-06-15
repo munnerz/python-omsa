@@ -117,6 +117,7 @@ def parse_om(suffix, filters=""):
         print >> sys.stderr, "Error running '%s', %s" % (" ".join(cmd), e)
         sys.exit(1)
 
+    data = data.decode()
     data = data.replace(' ','').splitlines()
     result = [{}]
     for item in data:
