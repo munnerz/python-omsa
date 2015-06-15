@@ -26,7 +26,7 @@ class storage:
             return map(self.__class__.VirtualDisk, self._get_properties('vdisk'))
 
         def pdisks(self):
-            return map(self.__class__.PhysicalDiskisk, self._get_properties('pdisk'))
+            return map(self.__class__.PhysicalDisk, self._get_properties('pdisk'))
 
         def battery(self):
             return map(self.__class__.Battery, self._get_properties('battery'))
