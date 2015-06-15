@@ -1,7 +1,7 @@
 from check_dell import parse_om
 
 class storage:
-    controllers = lambda: controller(parse_om("storage controller"))
+    controllers = lambda: map(controller, parse_om("storage controller"))
 
     class controller:
         vdisks = lambda self: parse_om("storage vdisk controller=%s" % (self.ID))
