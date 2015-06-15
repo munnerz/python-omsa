@@ -1,6 +1,7 @@
 from check_dell import parse_om
 
 class storage:
+    @classmethod
     controllers = lambda: map(controller, parse_om("storage controller"))
 
     class controller:
