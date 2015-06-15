@@ -1,6 +1,7 @@
 from check_dell import parse_om
 
 def load_props(obj, props):
+    obj._props = props
     for x, y in props.items():
         setattr(obj, x, y)
 
