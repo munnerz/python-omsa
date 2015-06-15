@@ -38,4 +38,4 @@ class storage:
 
     @classmethod
     def controllers(cls):
-        map(cls.Controller, parse_om("storage controller"))
+        return map(cls.Controller, parse_om("storage controller"))
