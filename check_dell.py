@@ -113,7 +113,7 @@ def parse_om(suffix, filters=""):
     cmd = ["/opt/dell/srvadmin/bin/omreport"] + suffix.split()
     try:
         data = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
-    except OSError, e:
+    except OSError as e:
         print >> sys.stderr, "Error running '%s', %s" % (" ".join(cmd), e)
         sys.exit(1)
 
@@ -192,13 +192,13 @@ def disp_results(components, chassis=""):
     countSuffix = " - [%s:Success, %s:Warning, %s:Critical]" %\
                   (len(succ), len(warn), len(crit))
     if crit:
-        print ", ".join(crit) + ", ".join(warn) + countSuffix
+        print(", ".join(crit) + ", ".join(warn) + countSuffix)
         sys.exit(2)
     elif warn:
-        print ", ".join(warn) + countSuffix
+        print(", ".join(warn) + countSuffix)
         sys.exit(1)
     else:
-        print ", ".join(succ) + countSuffix
+        print(", ".join(succ) + countSuffix)
 
 
 def main():
