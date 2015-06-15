@@ -1,4 +1,4 @@
-from check_dell import parse_om
+from .check_dell import parse_om
 
 def load_props(obj, props):
     obj._props = props
