@@ -1,12 +1,7 @@
 from check_dell import parse_om
 
 class storage:
-    
-    @classmethod
-    def controllers():
-        map(controller, parse_om("storage controller"))
-
-    class controller:
+    class Controller:
         vdisks = lambda self: parse_om("storage vdisk controller=%s" % (self.ID))
         pdisks = lambda self: parse_om("storage pdisk controller=%s" % (self.ID))
         battery = lambda self: parse_om("storage battery controller=%s" % (self.ID))
@@ -17,3 +12,7 @@ class storage:
 
         def __repr__(self):
             return "Controller #%s" % self.ID
+
+    @classmethod
+    def controllers(cls):
+        map(cls.Controller, parse_om("storage controller"))
