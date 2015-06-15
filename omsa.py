@@ -8,7 +8,7 @@ class storage:
 
         def __init__(self, props):
             for x, y in props.items():
-                self.__setattr__(x, y)
+                setattr(self, x, y)
 
         def __repr__(self):
             return "Controller #%s" % self.ID
